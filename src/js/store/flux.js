@@ -1,43 +1,75 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			favorites: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+			fetchStarWars: async (element, page, limit = 10) => {
+				let baseUrl = `https://www.swapi.tech/api/${element}?page=${page}&limit=${limit}`
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+				try {
+					let response = await fetch(baseUrl)
+					if (!response.ok) return response.status
+					let data = await response.json()
+					let obj = {}
+					obj[element] = data.results.map(item=>({
+						...item,
+						img:`https://starwars-visualguide.com/assets/img/${element=="people"?"characters":element}/${item.uid}.jpg`
+					}))
+					setStore(obj)
+				}
+				catch (error) {
+					console.error(error)
+				}
+				
+			},
+			removeFavorite: (name) => {
+				const { favorites } = getStore();
+				const newFavorites = favorites.filter((item) => item.name !== name);
+				setStore({ favorites: newFavorites });
+			  },
+			addFavorites: (id, name) => {
+				let {favorites} = getStore()
+				if(!favorites.some(item=>item.id==id)){
+					setStore({favorites:[...favorites,{id:id, name:name}]})
+				}
+				else {
+					let index=favorites.findIndex(item=>item.id==id)
+					let newFavorites=[...favorites]
+					newFavorites.splice(index,1)
+					setStore({favorites:newFavorites})
+				}
+			},
+			fetchElement: async (element, id) => {
+				let baseUrl = `https://www.swapi.tech/api/${element}/${id}`
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
+				try {
+					let response = await fetch(baseUrl)
+					if (!response.ok) return response.status
+					let data = await response.json()
+					let obj = {}
+					obj[id] = {...data.result.properties, img: `https://starwars-visualguide.com/assets/img/${element=="people"?"characters":element}/${id}.jpg` }
+					setStore({element:obj})
+				}
+				catch (error) {
+					console.error(error)
+				}
+			},
+			fetchPages: async (element) => {
+				let baseUrl = `https://www.swapi.tech/api/${element}`
+
+				try {
+					let response = await fetch(baseUrl)
+					if (!response.ok) return response.status
+					let data = await response.json()
+					return data.total_pages
+				}
+				catch (error) {
+					console.error(error)
+				}
+				
+			},
+			
 		}
 	};
 };
