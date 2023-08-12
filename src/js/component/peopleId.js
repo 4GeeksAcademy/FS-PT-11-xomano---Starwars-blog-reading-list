@@ -12,7 +12,7 @@ export const PeopleId = () => {
   }, []);
 
   function imgError(e) {
-    e.target.src ="https://starwars-visualguide.com/assets/img/placeholder.jpg";
+    e.target.src = "https://via.placeholder.com/204x214?text=Photo have we not";
   }
 
   let textElements = [];
@@ -35,10 +35,14 @@ export const PeopleId = () => {
       <h2>id: {peopleId} </h2>
       <div className="details d-flex justify-content-center mt-5">
         {person && (
-          <div><img className="pimg"
-            src={person.img}
-            onError={imgError}
-            alt="person"/></div>
+          <div>
+            <img
+              className="pimg"
+              src={person.img}
+              onError={imgError}
+              alt="person"
+            />
+          </div>
         )}
         <div className="element">{textElements}</div>
       </div>
