@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       favorites: [],
     },
     actions: {
-      fetchStarWars: async (element, page, limit = 30) => {
+      fetchStarWars: async (element, page, limit = 100) => {
         let baseUrl = `https://www.swapi.tech/api/${element}?page=${page}&limit=${limit}`;
 
         try {

@@ -1,5 +1,5 @@
 {
-  "name": "react-hello-webapp",
+  "name": "star-wars-blog",
   "engines": {
     "node": "16.x"
   },
@@ -12,17 +12,13 @@
     "deploy": "node deploy-to-github.js"
   },
   "author": {
-    "name": "Alejandro Sanchez",
-    "url": "http://alesanchezr.com/"
+    "name": "Adriano Maximiano",
+    "url": "https://www.linkedin.com/in/adriano-maximiano-60ab59271/"
   },
   "contributors": [
     {
-      "name": "Alejandro Sanchez",
-      "url": "http://alesanchezr.com/"
-    },
-    {
-      "name": "Ignacio Cordoba",
-      "url": "http://github.com/nachovz"
+      "name": "",
+      "url": ""
     }
   ],
   "license": "ISC",
