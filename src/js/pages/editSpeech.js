@@ -1,15 +1,14 @@
 import React, { useEffect, useContext } from "react";
-import "../../styles/footer.css";
+import "../../styles/editSpeech.css";
 import { Context } from "../store/appContext";
-import { ListCards } from "../component/cards";
 
-export const Footer = () => {
+export const EditSpeech = () => {
   const { store, actions } = useContext(Context);
 
   return (
     <div className="text-center mt-5">
-      <h1>Footer</h1>
-      <h2>Lembrar de dizer que o site não é oficial da Igreja</h2>
+      <h1>Editar Discurso</h1>
+      <h2>Acessivel apenas pelo dashboard page depois do login</h2>
     </div>
   );
 };

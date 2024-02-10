@@ -1,15 +1,14 @@
 import React, { useEffect, useContext } from "react";
-import "../../styles/footer.css";
+import "../../styles/speechId.css";
 import { Context } from "../store/appContext";
-import { ListCards } from "../component/cards";
 
-export const Footer = () => {
+export const SpeechId = () => {
   const { store, actions } = useContext(Context);
 
   return (
     <div className="text-center mt-5">
-      <h1>Footer</h1>
-      <h2>Lembrar de dizer que o site não é oficial da Igreja</h2>
+      <h1>Discurso ID</h1>
+      <h2>Mostrar o discurso selecionado :id</h2>
     </div>
   );
 };

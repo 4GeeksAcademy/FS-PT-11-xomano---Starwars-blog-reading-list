@@ -1,15 +1,13 @@
 import React, { useEffect, useContext } from "react";
-import "../../styles/footer.css";
+import "../../styles/eventId.css";
 import { Context } from "../store/appContext";
-import { ListCards } from "../component/cards";
 
-export const Footer = () => {
+export const EventId = () => {
   const { store, actions } = useContext(Context);
 
   return (
     <div className="text-center mt-5">
-      <h1>Footer</h1>
-      <h2>Lembrar de dizer que o site não é oficial da Igreja</h2>
+      <h1>Atividade selecionada :id</h1>
     </div>
   );
 };
