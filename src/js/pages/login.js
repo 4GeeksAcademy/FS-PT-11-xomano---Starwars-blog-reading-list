@@ -12,7 +12,7 @@ export const Login = () => {
       <h2>Página Não indexada</h2>
       <p>
         Fazer login para criar, editar ou excluir discurso <br /> Redirecionar
-        automaticamente para /novo-discurso
+        automaticamente para /dashboard
       </p>
     </div>
   );

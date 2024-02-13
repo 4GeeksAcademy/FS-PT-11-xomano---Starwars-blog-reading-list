@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import injectContext from "./store/appContext";
 import ScrollToTop from "./component/scrollToTop";
+import "../styles/layout.css";
 
 import { Navbar } from "./component/navbar.js";
 import { Footer } from "./component/footer";
@@ -24,24 +25,28 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
 
   return (
-    <div className="container-fluid fullpage">
+    <div className="container-fluid">
       <BrowserRouter basename={basename}>
         <ScrollToTop>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/lista-de-discursos" element={<Speech />} />
-            <Route path="/discurso/:id" element={<SpeechId />} />
-            <Route path="/eventos" element={<Events />} />
-            <Route path="/eventos/:id" element={<EventId />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/novo-discurso" element={<NewSpeech />} />
-            <Route path="/editar-discurso" element={<EditSpeech />} />
-            <Route path="/criar-evento" element={<CreateEvent />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-          <Footer />
+          <div className="fullpage">
+            <Navbar />
+            <div className="main-content">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/lista-de-discursos" element={<Speech />} />
+                <Route path="/discurso/:id" element={<SpeechId />} />
+                <Route path="/criar-atividade" element={<CreateEvent />} />
+                <Route path="/atividades" element={<Events />} />
+                <Route path="/atividade/:id" element={<EventId />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/novo-discurso" element={<NewSpeech />} />
+                <Route path="/editar-discurso" element={<EditSpeech />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </div>
+            <Footer />
+          </div>
         </ScrollToTop>
       </BrowserRouter>
     </div>

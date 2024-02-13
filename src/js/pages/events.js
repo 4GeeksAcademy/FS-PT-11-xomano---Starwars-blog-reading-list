@@ -7,7 +7,7 @@ export const Events = () => {
 
   return (
     <div className="text-center mt-5">
-      <h1> Pagina de Calendários</h1>
+      <h1> Pagina de Atividades</h1>
     </div>
   );
 };

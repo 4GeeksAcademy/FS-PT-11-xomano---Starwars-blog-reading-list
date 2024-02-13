@@ -1,0 +1,37 @@
+.btn-navbar {
+  margin: 5px;
+  padding: 5px 10px;
+  /* border: solid 1px white; */
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-family: calibri;
+}
+
+.btn-navbar:hover {
+  background-color: #596c7b;
+  color: white;
+}
+
+.collapse {
+  font-family: Roboto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  max-width: 80%;
+  background-color: #011d35;
+}
+
+.separador {
+  color: white;
+  align-items: center;
+  font-size: 1.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-toggler {
+  color: white;
+}

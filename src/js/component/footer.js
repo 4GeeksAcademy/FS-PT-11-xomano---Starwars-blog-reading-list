@@ -7,9 +7,9 @@ export const Footer = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="text-center mt-5">
+    <footer className="footer">
       <h1>Footer</h1>
       <h2>Lembrar de dizer que o site não é oficial da Igreja</h2>
-    </div>
+    </footer>
   );
 };
